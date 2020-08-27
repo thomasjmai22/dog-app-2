@@ -1,14 +1,16 @@
 const randomUrl = "https://dog.ceo/api/breeds/image/random/";
 
 function displayResults(responseJson) {
-  console.log(responseJson);
+  //console.log(responseJson);
   $(".results-img").empty();
   for (let i = 0; i < responseJson.message.length; i++) {
+    //console.log(responseJson.message[i]);
     $(".results-img").append(
       `<li><img src="${responseJson.message[i]}" class="results-img"></li>`
     );
     //display the results section
   }
+
   $("#results").removeClass("hidden");
 }
 
@@ -17,11 +19,12 @@ function getDogImages(numInput) {
 
   fetch(newUrl)
     .then((response) => response.json())
-    .then((responseJson) => displayResults(responseJson))
+    .then((responseJson) => console.log(responseJson))
+    //.then((responseJson) => displayResults(responseJson))
     .catch((error) => alert("Something went wrong. Try again later."));
 }
 
-function watchForm() {
+function checkForm() {
   $("form").submit((event) => {
     event.preventDefault();
     const numInput = $("#num-dog").val();
@@ -31,5 +34,5 @@ function watchForm() {
 
 $(function () {
   console.log("App loaded! Waiting for submit!");
-  watchForm();
+  checkForm();
 });

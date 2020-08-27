@@ -14,3 +14,21 @@ body {
 .hidden {
   display: none;
 }
+
+img.results-img {
+  max-width: 200px;
+  max-height: 200px;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.results {
+  list-style-type: none;
+}
+
+li {
+  list-style-type: none;
+  display: inline-flex;
+}
